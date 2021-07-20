@@ -1,4 +1,4 @@
-# 3DSpaceTiling
+# Introduction
 Divides the 3D space with or without overlaps. Tested on 3D point clouds.
 
 # Quick Pipleine Visualization
