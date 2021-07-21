@@ -2,5 +2,7 @@
 Divides the 3D space with or without overlaps. Tested on 3D point clouds.
 
 # Quick Pipleine Visualization
-![tiles](https://user-images.githubusercontent.com/28588878/126407918-998a2e22-2ce6-4aea-b3bb-2a51953376df.png) ![fitPlane](https://user-images.githubusercontent.com/28588878/126407942-2990139a-4d32-4818-b898-911c610d9f94.png) ![planeViews](https://user-images.githubusercontent.com/28588878/126407950-11c111e0-e677-486a-852a-b6b9ec182257.png)
+![tiles](https://user-images.githubusercontent.com/28588878/126412827-74ba8010-4206-4511-b967-8334eade1bff.png) ![planeViews](https://user-images.githubusercontent.com/28588878/126412838-2ab6aa8a-1744-493a-8032-33e0b4a2253f.png) ![fitPlane](https://user-images.githubusercontent.com/28588878/126412858-4d5d8a06-2882-4f38-bf2a-befea5c2a28c.png)
+
+
 
