@@ -17,11 +17,10 @@ Start = tic;
 
 %%
 % Inputs
-filePath = 'D:\OneDrive\Team Work\Team PCloud\3D models\PCL';
 fileName = 'teapot.ply';
 
 % Read point cloud
-ptCloud = pcread(fullfile(filePath,fileName));
+ptCloud = pcread(fileName);
 
 input.zeroCenterAlign2XYZplane = 0; 
 input.overlapStyle = 'equalOverlap';  %'unequalOverlap' | 'equalOverlap'
