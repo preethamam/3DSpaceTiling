@@ -354,6 +354,8 @@ if (input.saveFragments == 1)
 
             fragment = pointCloud(fragmentZerocenter);
             fragment.Color = fragmentColor;
+        else
+            fragment = fragmentOriginal;
         end
         
         % Save fragments
