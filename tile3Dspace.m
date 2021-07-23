@@ -14,7 +14,7 @@ function ROIs = tile3Dspace(ptCloudOriginal, input)
 % Usage: ROIs = tile3Dspace(ptCloud, input)
 % Inputs: ptCloud   - Point cloud
 %         input
-%         input.zeroCenterAlign2XYZplane = 1; 0 - off | 1 - on | 
+%         input.zeroCenterAlign2XYZplane = 1; 0 -- none | 1 - PCA based | 2 - axis rotation based 
 %                                             Zero centers the point cloud
 %                                             data and aligns to XYZ planes
 %         input.overlapStyle = 'unequalOverlap';  % 'unequalOverlap' | 'equalOverlap'
@@ -24,11 +24,15 @@ function ROIs = tile3Dspace(ptCloudOriginal, input)
 %         input.showGridPattern = 1;                0 - off | 1 - on
 %         input.showPartitions  = 1;                0 - off | 1 - on
 % 
-%         input.saveFragments = 1;                  6 - off | 1 - on
+%         input.saveFragments = 1;                  0 - off | 1 - on
 %         input.zeroCenterFragments = 1;            0 - off | 1 - on
 %         input.filename = fileName;                filename to save
 %         input.fileSavePath = '';                  file oath to save
 %         input.encodingType = 'compressed';        %'ascii' (default) | 'binary' | 'compressed'
+
+%         input.removeFragmentOutliers = 1;         0 - off | 1 - on 
+%         input.minDistance = 0.2;                  minimum distance to points to create 
+%                                                   segmentation connected components
 % 
 %         input.overlapX = 0.5;         % Overlap % in X-direction
 %         input.overlapY = 0.5;         % Overlap % in Y-direction
@@ -188,6 +192,24 @@ if (input.zeroCenterAlign2XYZplane == 1)
     
     % Create the point cloud copy
     ptCloud = ptCloudNew;
+    
+elseif input.zeroCenterAlign2XYZplane == 2
+    % Zero center the point cloud data
+    pcMean  = mean(ptCloudOriginal.Location, 1);
+    pcZeroCentered = bsxfun(@minus, ptCloudOriginal.Location, pcMean); 
+    
+    % Find the axis-orientation of the point cloud
+    OOBB = orientedBox3d(double(pcZeroCentered));
+
+    % Transformation matrix
+    deg = [OOBB(7)  OOBB(8)  OOBB(9)];
+    mat1 = eulerAnglesToRotation3d(deg,'ZYX');
+    rotMatNew = inv(mat1);
+    ptCloudNew.Location = transformPoint3d(pcZeroCentered, rotMatNew);
+
+    % Convert to pointCloud class
+    ptCloud = pointCloud(ptCloudNew.Location);
+    ptCloud.Color = ptCloudOriginal.Color;
 else
     
     % Create the point cloud copy
@@ -333,6 +355,8 @@ if (input.showPartitions == 1)
         xlabel('X')
         ylabel('Y')
         zlabel('Z')
+        
+%         view(2)
         drawnow;
     end
     hold off
@@ -358,9 +382,29 @@ if (input.saveFragments == 1)
             fragment = fragmentOriginal;
         end
         
+        % Remove outliers
+        if(input.removeFragmentOutliers == 1)
+            
+            % Get labels for points
+            [labels,numClusters] = pcsegdist(fragment, input.minDistance);
+            N = histcounts(labels);
+            [maxLabelNum, idx] = max(N); 
+            maxClusterIndex = find(labels == idx);
+
+            loc = fragment.Location(maxClusterIndex,:);           
+            if ~isempty(ptCloudOriginal.Color)
+                clr = fragment.Color(maxClusterIndex,:);
+            else
+                clr = uint8([]);
+            end
+
+            fragment = pointCloud(loc);
+            fragment.Color = clr;
+        end
+
         % Save fragments
         [filepath,name,ext] = fileparts(input.filename);
-        outputBaseFileName = [name, '_' num2str(i)];    
+        outputBaseFileName = [name, '_' num2str(i) ext];    
         fileName = fullfile(input.fileSavePath, outputBaseFileName);
         pcwrite(fragment, fileName, 'Encoding', input.encodingType)
     end
