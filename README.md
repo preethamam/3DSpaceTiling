@@ -6,6 +6,7 @@ Divides the 3D space with or without overlaps. Tested on 3D point clouds.
 
 # Requirements
 MATLAB
+MATLAB - Computer Vision Toolbox
 MatGeom toolbox - http://github.com/mattools/matGeom
 
 # MATLAB Central
