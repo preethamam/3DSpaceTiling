@@ -11,8 +11,6 @@
 %% Start
 %--------------------------------------------------------------------------
 clear; close all; clc;
-clcwaitbarz = findall(0,'type','figure','tag','TMWWaitbar');
-delete(clcwaitbarz);
 Start = tic;
 
 %%
@@ -22,7 +20,7 @@ fileName = 'teapot.ply';
 % Read point cloud
 ptCloud = pcread(fileName);
 
-input.zeroCenterAlign2XYZplane = 0; 
+input.zeroCenterAlign2XYZplane = 0; % 0 -- none | 1 - PCA based | 2 - axis rotation based
 input.overlapStyle = 'equalOverlap';  %'unequalOverlap' | 'equalOverlap'
 input.sequence = 'ZYZ';               %'ZYX' (default) | 'ZYZ' | 'XYZ'
 input.showPCAvectors  = 1;
@@ -35,6 +33,9 @@ input.zeroCenterFragments = 0;
 input.filename = fileName;
 input.fileSavePath = '';
 input.encodingType = 'ascii';    %'ascii' (default) | 'binary' | 'compressed'
+
+input.removeFragmentOutliers = 1;
+input.minDistance = 0.2;
 
 input.overlapX = 0.5;
 input.overlapY = 0.5;
@@ -49,13 +50,5 @@ ROIs = tile3Dspace(ptCloud, input);
 
 %% End parameters
 %--------------------------------------------------------------------------
-clcwaitbarz = findall(0,'type','figure','tag','TMWWaitbar');
-delete(clcwaitbarz);
-statusFclose = fclose('all');
-if(statusFclose == 0)
-    disp('All files are closed.')
-end
 Runtime = toc(Start);
 disp(Runtime);
-currtime = datetime('now');
-display(currtime)
