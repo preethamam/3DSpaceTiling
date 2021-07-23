@@ -11,7 +11,7 @@ Divides the 3D space with or without overlaps. Tested on 3D point clouds.
 #### Requires MatGeom toolbox
 | Original point cloud  | Original point cloud XYZ planes | Re-oriented XYZ plane views |
 | ------------- | ------------- | ------------- |
-| Screen Shot 2021-07-23 at 4.28.00 AM<img width="389" alt="Screen Shot 2021-07-23 at 4 28 00 AM" src="https://user-images.githubusercontent.com/28588878/126775952-8c28e260-dbd1-4d4f-abcd-2c6841267cc1.png"> | Screen Shot 2021-07-23 at 4.39.07 AM<img width="863" alt="Screen Shot 2021-07-23 at 4 39 07 AM" src="https://user-images.githubusercontent.com/28588878/126776720-28232c94-2537-4f3e-9e9e-425d39643b4a.png"> | Screen Shot 2021-07-23 at 4.39.23 AM<img width="874" alt="Screen Shot 2021-07-23 at 4 39 23 AM" src="https://user-images.githubusercontent.com/28588878/126776740-376f342a-43cf-47d9-9d8e-a9fd595b07ae.png"> |
+| <img width="389" alt="Screen Shot 2021-07-23 at 4 28 00 AM" src="https://user-images.githubusercontent.com/28588878/126775952-8c28e260-dbd1-4d4f-abcd-2c6841267cc1.png"> | <img width="863" alt="Screen Shot 2021-07-23 at 4 39 07 AM" src="https://user-images.githubusercontent.com/28588878/126776720-28232c94-2537-4f3e-9e9e-425d39643b4a.png"> | <img width="874" alt="Screen Shot 2021-07-23 at 4 39 23 AM" src="https://user-images.githubusercontent.com/28588878/126776740-376f342a-43cf-47d9-9d8e-a9fd595b07ae.png"> |
 
 # Requirements
 MATLAB <br />
