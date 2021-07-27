@@ -11,7 +11,7 @@ Divides the 3D space with or without overlaps. Tested on 3D point clouds.
 #### Requires MatGeom toolbox
 | Original point cloud  | Original point cloud XYZ planes | Re-oriented XYZ plane views |
 | ------------- | ------------- | ------------- |
-| <img width="728" alt="Screen Shot 2021-07-23 at 4 47 54 AM" src="https://user-images.githubusercontent.com/28588878/126777569-11b1646e-4655-4ad6-9eb9-2047abdb9de1.png"> | <img width="863" alt="Screen Shot 2021-07-23 at 4 39 07 AM" src="https://user-images.githubusercontent.com/28588878/126776720-28232c94-2537-4f3e-9e9e-425d39643b4a.png"> | <img width="874" alt="Screen Shot 2021-07-23 at 4 39 23 AM" src="https://user-images.githubusercontent.com/28588878/126776740-376f342a-43cf-47d9-9d8e-a9fd595b07ae.png"> |
+| ![tilesEngine](https://user-images.githubusercontent.com/28588878/127075812-c2996924-7541-4cab-ab05-df48e0c8affa.png) | <img width="863" alt="Screen Shot 2021-07-23 at 4 39 07 AM" src="https://user-images.githubusercontent.com/28588878/126776720-28232c94-2537-4f3e-9e9e-425d39643b4a.png"> | <img width="874" alt="Screen Shot 2021-07-23 at 4 39 23 AM" src="https://user-images.githubusercontent.com/28588878/126776740-376f342a-43cf-47d9-9d8e-a9fd595b07ae.png"> |
 
 # Requirements
 MATLAB <br />
