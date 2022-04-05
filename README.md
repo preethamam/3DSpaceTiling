@@ -16,7 +16,7 @@ Divides the 3D space with or without overlaps. Tested on 3D point clouds.
 # Requirements
 MATLAB <br />
 MATLAB - Computer Vision Toolbox <br />
-MatGeom toolbox - http://github.com/mattools/matGeom
+[MatGeom toolbox](http://github.com/mattools/matGeom)
 
 # MATLAB Central
 [![View 3DSpaceTiling on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/96128-3dspacetiling)
