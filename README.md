@@ -1,4 +1,6 @@
 # Introduction
+[![View 3DSpaceTiling on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/96128-3dspacetiling) [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=preethamam/3DSpaceTiling)
+
 Divides the 3D space with or without overlaps. Tested on 3D point clouds.
 
 # Quick Pipeline Visualization
@@ -18,7 +20,5 @@ MATLAB <br />
 MATLAB - Computer Vision Toolbox <br />
 [MatGeom toolbox](http://github.com/mattools/matGeom)
 
-# MATLAB Central
-[![View 3DSpaceTiling on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/96128-3dspacetiling)
-
+# Feedback
 Please rate and provide feedback for the further improvements.
